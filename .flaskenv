@@ -1,0 +1,2 @@
+FLASK_APP=caixa_do_ze.py
+FLASK_ENV=development

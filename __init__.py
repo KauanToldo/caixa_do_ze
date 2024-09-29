@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 from routes.vendas import vendas_route
 from routes.estoque import estoque_route
 from routes.dashboard import dashboard_route
@@ -13,6 +13,10 @@ app.register_blueprint(estoque_route, url_prefix="/estoque")
 app.register_blueprint(dashboard_route, url_prefix="/dashboard")
 app.register_blueprint(cadastro_route, url_prefix="/cadastro")
 app.register_blueprint(login_route, url_prefix="/login")
+
+@app.route('/')
+def home():
+    return redirect(url_for('login.home'))  # Redirecione para a rota de login
 
 if __name__ == '__main__':
     app.run(debug=True) 

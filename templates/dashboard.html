@@ -1,4 +1,37 @@
 {% extends 'navegacao.html' %}
 {% block conteudo %}
-    <h1>Dashboard</h1>
+    <div id="dashboard-page">
+        <h1 id="title-dashboard">Movimentação Financeira</h1>
+        <div id="dashboard-container">
+            <div id="top-dashboard">
+                <div id="entradas">
+                    <span>Entradas</span>
+                    <div>
+                        <p>Vendas realizadas: {{qtd_vendas}}</p>
+                        <p>Valor obtido: R${{valor_obtido}}</p>
+                    </div>
+                </div>
+                <div id="saidas">
+                    <span>Saidas</span>
+                    <div>
+                        <p>Compras realizadas: {{qtd_estoque}}</p>
+                        <p>Valor gasto: R${{valor_gasto}}</p>
+                    </div>
+                </div>
+                <div id="estoque">
+                    <span>Estoque</span>
+                    <div>
+                        <p>Quantidade em estoque: {{qtd_produtos}}</p>
+                        <p>Quantidade de itens vendidos: {{qtd_produtos_vendidos}}</p>
+                    </div>
+                </div>
+            </div>
+            <div id="resumo-container">
+                <span>Total</span>
+                <p id="lucro">
+                    R$ {{lucro}} de lucro obtido
+                </p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

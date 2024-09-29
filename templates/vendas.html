@@ -1,4 +1,54 @@
 {% extends 'navegacao.html' %}
 {% block conteudo %}
-    <h1>Vendas</h1>
+    <div id="modal_venda">
+        <div id="modal-container-vendas">
+            <span onclick="close_addvenda()" id="close-modal-vendas" class="material-symbols-outlined">disabled_by_default</span>
+            <h2>Cadastrar venda</h2>
+            <form c-append="#lista-vendas" class="c-form addvendaform" action="{{url_for('vendas.inserirVenda')}}" method="POST">
+                <label class="form-label">Produto</label>
+                    <select name="produto" class="form-control">
+                        {% for produto in produtos %}
+                            <option value="{{ produto.nome }}">{{ produto.nome }}</option>
+                        {% endfor %}
+                    </select>
+                <div class="mb-3">
+                    <label class="form-label">Data</label>
+                    <input type="date" name="data" class="form-control" id="exampleInputName">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Quantidade</label>
+                    <input type="number" name="quantidade" class="form-control" id="exampleInputName">
+                </div>
+                <button type="submit" class="btn btn-add-produto">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+    <div class="container-vendas">
+        <div id="header-vendas">
+            <div>
+                <h1>Vendas</h1>
+                <span>{{ qtd_vendas }} Vendas realizadas</span>
+            </div>
+            <button onclick="open_addvenda()" type="button" class="btn btn-venda"><span class="material-symbols-outlined">add_circle</span>Venda</button>
+        </div>
+        <div id="main-vendas">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">Valor Unitário</th>
+                    <th scope="col">Valor Total</th>
+                    <th scope="col">Ação</th>
+                </tr>
+                </thead>
+                <tbody id="lista-vendas">
+                {% for venda in vendas %}
+                        {% include 'itemVenda.html' %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

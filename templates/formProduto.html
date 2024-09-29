@@ -1,0 +1,25 @@
+<div class="modal_produto_edit">
+    <div id="modal-container-edit">
+        <span onclick="close_editproduto()" id="close-modal-edit" class="material-symbols-outlined">disabled_by_default</span>
+        <h2>Editar produto</h2>
+        <form class="c-form" {% if usuario %} c-swap="usuario--{{usuario.id}}" action="{{url_for('estoque.updateProduto', produto_id=produto.id)}}" {% endif %} method="PUT">
+            <div class="mb-3">
+                <label class="form-label">Nome do Produto</label>
+                <input type="text" name="nome" class="form-control" {% if usuario %} value="{{produto.nome}}" {% endif %}>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Quantidade</label>
+                <input type="number" name="quantidade" class="form-control" {% if usuario %} value="{{produto.quantidade}}" {% endif %}>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Preço de Compra</label>
+                <input type="number" name="preco_compra" class="form-control" {% if usuario %} value="{{produto.valor_compra}}" {% endif %}>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Preço de Venda</label>
+                <input type="number" name="preco_venda" class="form-control" {% if usuario %} value="{{produto.valor_venda}}" {% endif %}>
+            </div>
+            <button type="submit" class="btn btn-edit-produto">Editar</button>
+        </form>
+    </div>
+</div>

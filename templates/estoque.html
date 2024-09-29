@@ -1,4 +1,62 @@
 {% extends 'navegacao.html' %}
 {% block conteudo %}
-    <h1>Estoque</h1>
+    <div id="modal_produto">
+        <div id="modal-container">
+            <span onclick="close_addproduto()" id="close-modal" class="material-symbols-outlined">disabled_by_default</span>
+            <h2>Cadastrar produto</h2>
+            <form c-append="#lista-produtos" class="c-form addprodutoform" action="{{url_for('estoque.inserirProduto')}}" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Nome do Produto</label>
+                    <input type="text" name="nome" class="form-control" id="exampleInputEmail">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Quantidade</label>
+                    <input type="number" name="quantidade" class="form-control" id="exampleInputName">
+                  </div>
+                  <div class="mb-3">
+                      <label class="form-label">Preço de Compra</label>
+                      <input type="number" name="preco_compra" class="form-control" id="exampleInputPassword">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Preço de Venda</label>
+                    <input type="number" name="preco_venda" class="form-control" id="exampleInputPassword">
+                </div>
+                <button type="submit" class="btn btn-add-produto">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal_produto_edit">
+        <div id="modal-container-edit">
+            <span onclick="close_editproduto()" id="close-modal-edit" class="material-symbols-outlined">disabled_by_default</span>
+            <h2>Editar produto</h2>
+            <div id="form-produto" c-container="{{url_for('estoque.formEstoque')}}"></div>
+        </div>
+    </div>
+    <div class="container-estoque">
+        <div id="header-estoque">
+            <div>
+                <h1>Produtos</h1>
+                <span>{{ qtd_produtos }} Produtos cadastrados</span>
+            </div>
+            <button onclick="open_addproduto()" type="button" class="btn btn-estoque"><span class="material-symbols-outlined">add_circle</span>Produto</button>
+        </div>
+        <div id="main-estoque">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Estoque</th>
+                    <th scope="col">Preço da Compra</th>
+                    <th scope="col">Preço da Venda</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="lista-produtos">
+                  {% for produto in estoque %}
+                        {% include 'itemEstoque.html' %}
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
 {% endblock %}

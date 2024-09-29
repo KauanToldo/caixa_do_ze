@@ -1,0 +1,12 @@
+<tr></tr>
+    <th scope="row">{{venda.produto}}</th>
+    <td>{{venda.data}}</td>
+    <td>{{venda.quantidade}}</td>
+    <td>R${{venda.valor_uni}}</td>
+    <td>R${{venda.valor_total}}</td>
+    <td>
+        <div>
+            <button c-delete="{{url_for('vendas.deleteVenda', venda_id=venda.id)}}" c-remove-closest="tr"  type="button" class="btn btn-danger" ><span class="material-symbols-outlined delete-icon">delete</span></button>
+        </div>
+    </td>
+</tr>

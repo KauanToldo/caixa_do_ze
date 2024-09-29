@@ -1,0 +1,19 @@
+<form {% if produto %} action="{{url_for('estoque.updateProduto', id=produto.id)}}" method="PUT" c-swap="produto--{{produto.id}}" c-reload-container="true" class="c-form" {% endif %}>
+    <div class="mb-3">
+        <label class="form-label">Nome do Produto</label>
+        <input type="text" name="nome" class="form-control" {% if produto %} value="{{produto.nome}}" {% endif %}>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Quantidade</label>
+        <input type="number" name="quantidade" class="form-control" {% if produto %} value="{{produto.quantidade}}" {% endif %}>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Preço de Compra</label>
+        <input type="number" name="preco_compra" class="form-control" {% if produto %} value="{{produto.valor_compra}}" {% endif %}>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Preço de Venda</label>
+        <input type="number" name="preco_venda" class="form-control" {% if produto %} value="{{produto.valor_venda}}" {% endif %}>
+    </div>
+    <button type="submit" class="btn btn-edit-produto">Editar</button>
+</form>

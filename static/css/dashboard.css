@@ -1,0 +1,69 @@
+#dashboard-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+#title-dashboard {
+    font-size: 24px
+}
+
+#dashboard-container {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+#top-dashboard {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#entradas, #saidas, #estoque {
+    width: 30%;
+    height: 200px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#entradas span, #saidas span, #estoque span, #resumo-container span {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#entradas {
+    background-color: #49d1ff91;
+}
+
+#saidas {
+    background-color: #fa61099d;
+}
+
+#estoque {
+    background-color: #39383736;
+}
+
+#resumo-container {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    background-color: #8EF398;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#lucro {
+    margin-top: 20px;
+    font-size: 60px;
+    font-weight: bold;
+}

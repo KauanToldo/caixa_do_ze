@@ -1,0 +1,12 @@
+<tr>
+    <th scope="row">{{produto.nome}}</th>
+    <td>{{produto.quantidade}}</td>
+    <td>R${{produto.valor_compra}}</td>
+    <td>R${{produto.valor_venda}}</td>
+    <td>
+        <div>
+            <button c-delete="{{url_for('estoque.deleteProduto', produto_id=produto.id)}}" c-remove-closest="tr"  type="button" class="btn btn-danger" ><span class="material-symbols-outlined delete-icon">delete</span></button>
+            <button type="button" onclick="open_editproduto({})" class="btn btn-light" c-target="#form-produto"><span class="material-symbols-outlined edit-icon">edit</span></button>
+        </div>
+    </td>
+</tr>

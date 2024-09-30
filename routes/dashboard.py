@@ -11,7 +11,7 @@ def home():
     qtd_estoque = len(ESTOQUE)
     valor_obtido = sum(venda['valor_total'] for venda in VENDAS)
     valor_gasto = sum(int(produto['valor_compra']) * int(produto['quantidade']) for produto in COMPRAS)
-    qtd_produtos = sum(produto['quantidade'] for produto in COMPRAS)
+    qtd_produtos = sum(int(produto['quantidade']) for produto in COMPRAS)
     qtd_produtos_vendidos = sum(int(venda['quantidade']) for venda in VENDAS)
     lucro =  valor_obtido - valor_gasto
 
